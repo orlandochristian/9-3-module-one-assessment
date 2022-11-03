@@ -172,18 +172,18 @@ function filterByGenre(movies,genre) {
   tempArr = []
   if (movies.length != 0)
    {
-    for (const movie of movies) {
-       tempArr = movie.genre.split(",")
-       for (let i=0; i < tempArr.length; i++) 
-        { 
-          if (tempArr[i] == genre )
-            {
-              finalArr.push(movie)
+    for (const movie of movies)
+     {
+       tempArr = movie.genre.split(", ")
+       //if (tempArr.includes(genre))
+         for (let i=0; i < tempArr.length; i++)
+         {
+            if (tempArr[i].toLowerCase() == genre.toLowerCase()) {
+            finalArr.push(movie)
             }
-        } 
-        tempArr = []; 
-        
-    }
+          }
+        tempArr = []
+     }
    }
 
   
@@ -191,6 +191,10 @@ function filterByGenre(movies,genre) {
 
   return finalArr
 }
+
+
+filterByGenre(exampleMovies,"Mystery")
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
